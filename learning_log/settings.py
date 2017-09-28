@@ -142,7 +142,7 @@ if os.getcwd() == '/app':
 
     SECURE_PROXY_SSL_HEAD = ('HTTP_X_FORWARDED_PROTO', 'http')
 
-    ALLOWED_HOST = ['*']
+    ALLOWED_HOSTS = ['*']
 
 
     BASE_DIR = os.path.dirname(os.path.abspath(__file__))
