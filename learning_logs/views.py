@@ -14,7 +14,7 @@ def index(request):
  
 def topics(request):
 	"""show all topics"""
-	topics = Topic.objects.filter(owner=request.user).order_by('date_added')
+	topics = Topic.objects.order_by('date_added')
 	context = {'topics': topics}
 	return render(request, 'learning_logs/topics.html', context)
 
@@ -55,7 +55,7 @@ def new_entry(request, topic_id):
 		form = EntryForm(data=request.POST)
 		if form.is_valid():
 			new_entry = form.save(commit=False)
-			new_topic.owner = request.user
+			new_entry.owner = request.user
 			new_entry.topic = topic
 			new_entry.save()
 			return HttpResponseRedirect(reverse('learning_logs:topic', 

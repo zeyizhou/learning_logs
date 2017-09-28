@@ -14,6 +14,7 @@ class Entry(models.Model):
 	topic = models.ForeignKey(Topic)
 	text = models.TextField()
 	date_added = models.DateTimeField(auto_now_add=True)
+	owner = models.CharField(max_length=200)
 
 	class Meta:
 		verbose_name_plural = 'entries'

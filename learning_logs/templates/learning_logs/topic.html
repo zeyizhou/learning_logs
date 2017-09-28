@@ -13,12 +13,15 @@
 	{% for entry in entries %}
 		<div class="panel-default">
 			<div class="panel-heading">
-				<h3>
+				<h3>{{ entry.owner }}</h3>
+				<p>
+					<strong>
 					{{ entry.date_added|date:'M d, Y H:i'}}
+					</strong>
 					<small>
 						<a href="{% url 'learning_logs:edit_entry' entry.id %}">edit entry</a>
 					</small>
-				</h3>
+				</p>
 			</div>
 			<div class="panel-body">
 				{{ entry.text|linebreaks }}
